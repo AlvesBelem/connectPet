@@ -1,0 +1,50 @@
+<%- include('../views/partials/head'); %>
+    <%- include('../views/partials/header'); %>
+        <%- include('../views/partials/aside'); %>
+            <main id="listar-usuarios">
+                <!--COLOCAR UM ID DA PAGINA-->
+
+                <div class="lista-usuarios-itens">
+                    
+
+                    <div class="search-users-form">
+                        <form action="/amizades" method="GET">
+                            <div class="input-group buscar-input-group">
+                                <label for="buscar-user">Label</label>
+                                <input class="buscar-input-field" type="text" name="buscaUsuario" id="input-texto" value="<%= nome %>"
+                                    placeholder="Buscar usuário">
+                            </div>
+                            <button type="submit" class="btn btn-orange">Buscar</button>
+                        </form>
+                    </div>
+                    
+                    <% for(let amigo of amigosA){%>
+                    
+                        <div class="lista-usuarios-item">
+                            
+                                <img src="<%=amigo.img_user%>" alt="imagem do usuário">
+                                <a href="#" class="usuario-nome">
+                                    <%=amigo.nome%>
+                                </a>
+                                <a class="btn btn-orange btn-seguir" href="/amizades/<%= amigo.usuarios_id %>/excluirAmigos"> - Deixar de seguir</a>
+                                
+                    
+                        </div>
+                        <%}%>
+
+
+
+                   
+
+
+                </div>
+
+
+            </main>
+
+            </div>
+
+
+            </body>
+
+            </html>

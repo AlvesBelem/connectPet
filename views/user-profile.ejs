@@ -1,0 +1,68 @@
+<%- include('../views/partials/head'); %>
+<%- include('../views/partials/header'); %>
+<%- include('../views/partials/aside'); %>
+<main id="user-profile">
+
+            <div class="container-user-profile">
+                <!--COLOCAR UM ID DA PAGINA-->
+                <!--AQUI VAI O CÓDIGO DE CADA PÁGINA-->
+                <section class="user-data">
+                    <div class="img-user--profile">
+                        <img src="<%=perfil.img_user%> " alt="imagem-usuario">
+                    </div>
+                  
+
+                    <div class="user-bio">
+                        <p class="user-bio-name"><%=perfil.nome%> <span>@<%=perfil.nome%> </span></p>
+                        <p class="user-bio-text">
+                            <%=perfil.bigrafia%> 
+                        </p>
+
+                        <p class="user-bio-location"><i class="fas fa-map-marker-alt"></i><%=perfil.localizacao%> </p>
+
+                    </div>
+
+                </section>              
+                <% if(publicacao.length > 0) { %>
+                    <% for(let pub of publicacao){%>
+                <section class="card-feed">
+                    <div class="header-feed card-feed-header">
+                        <div class="img-user">
+                            <img id="imgUser" src="<%=perfil.img_user%> " alt="image-feed">
+                            <div class="card-feed--header-text">
+                                <a class="user-name-card">@<%=perfil.nome%> </a>
+                                <p class="text-feed"><%=pub.texto%></p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="image-feed">
+                        <img id="imgId" src="images_pub/<%= pub.img_pub %>" alt="image-feed">
+                    </div>
+
+                    <div class="feed-comentarios">
+                        <button class="heart-feed-button">
+                            <i class="fas fa-heart"></i>
+                        </button>
+
+                        <p class="likes">50 Likes</p>
+                        <!--<a class="comentarios">3 Comentários</a>-->
+
+                    </div>
+
+
+                </section>
+                <%}%>
+                <%} else { %>
+                    <div >Nenhuma publicacao encontrado</div>
+                <% } %>
+
+
+            </div>
+        </main>
+
+
+
+
+</body>
+
+</html>
